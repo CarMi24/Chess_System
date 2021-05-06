@@ -2,8 +2,11 @@
 
 int main()
 {
-    printf("hello world");
-    printf("my branch #carmi);
-      printf("blabla");
+
+
+    printf("hello world\n");
+    printf("my branch #carmi\n");
+    printf("also my branch #elad\n);       
+ main
     return 0;
 }
