@@ -40,6 +40,7 @@ static MapKeyElement copyGameKey(MapKeyElement game_key);
 static MapDataElement copyGameData(MapDataElement game);
 static void freeGameKey(MapKeyElement game_key);
 static void freeGameData(MapDataElement game);
+static int compareKeyGame(MapKeyElement game1, MapKeyElement game2);
 
 
 /**
@@ -54,6 +55,9 @@ static void calculateTournamentWinner(Tournament tournament);
  * otherwise does nothing. 
  */
 static void updateLongestGameTime(int new_time);
+
+
+
 /**
 * createTournament: Allocates a new empty tournament.
 * @return
@@ -101,6 +105,8 @@ int getTournamentLongestGameTime(Tournament tournament);
 
 double calculateAverageTournamentGameTime(Tournament tournament);
 
+bool getTournamentStatus(Tournament Tournament);
+
 /**
  * prints the tournaments statistics to the a file located in the given path_file.
  * @return -
@@ -108,5 +114,10 @@ double calculateAverageTournamentGameTime(Tournament tournament);
  * TOURNAMENT_ERROR - if tournaments closed
  */
 TournamentResult printTournamentStats(Tournament tournament,char* path_file);
+
+/**
+ *
+ */
+void endTournament(Tournament tournament);
 
 #endif

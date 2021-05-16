@@ -40,7 +40,7 @@ static void freeKeyTournament(MapKeyElement tournament_key);
 static void freeDataTournament(MapDataElement tournament_data);
 static MapKeyElement copyKeyTournament(MapKeyElement tournament_key);
 static MapDataElement copyElementData(MapDataElement tournament_data);
-
+static int compareKeyTournament(MapKeyElement tournament_key1, MapKeyElement tournament_key2);
 /** Functions for the players map**/
 
 /**
@@ -51,8 +51,11 @@ static void freeKeyPlayer(MapKeyElement player_key);
 static void freeDataPlayer(MapDataElement player_data);
 static MapKeyElement copyKeyPlayer(MapKeyElement player_key);
 static MapDataElement copyDataPlayer(MapDataElement player_data);
+static int compareKeyPlayer(MapKeyElement player_key1, MapKeyElement player_key2);
 
 /** Static Functions for convinience **/
+
+
 /**
  * returns if an integer is positive.
  */
@@ -63,7 +66,23 @@ static bool isPositive(int number);
  */
 static bool isLocationValid(const char* location);
 
+/**
+ * check each player games played in the tournament in comparison to the max allowed
+ * returns true if both under the limit otherwise false
+ */
+static bool checkExceededGames(int player1_id, int player2_id,int tournament_id, int max_games_per_player);
 
+/**
+ * calculates and return the ID of the player who won the tournament.
+ */
+
+static int calculateTournamentWinner(Map players, int tournament_id);
+
+/**
+ * Iterates the players map and sums the players who played in a given tournament
+ * returns the number of players
+ */
+static int calculateNumOfPlayersInTournament(Map players, int tournament_id);
 
 /** Chess System Application **/
 
@@ -143,4 +162,6 @@ ChessResult chessRemoveTournament(ChessSystem chess, int tournament_id);
  * CHESS_TOURNAMENT_NOT_EXISTS
  */
 ChessResult chessRemovePlayer(ChessSystem chess, int player_id);
+
+
 #endif
